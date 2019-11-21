@@ -1,0 +1,97 @@
+<!-- Custom template goes here -->
+<div class="fade-in px-1 px-md-2">
+  <section class="main">
+    {{#if guest}}
+    <div class="row py-5">
+      <div class="col text-center">
+        <span class="guest-name">{{guest.name}},</span>
+      </div>
+    </div>
+    {{/if}}
+    <div class="row blurr">
+      {{#if mainPhoto}}
+      <div class="col-12 col-md-8">
+        <h1 class="display-1 jump text-center luckiestguy">
+          {{invite.title}}
+        </h1>
+        <div class="pacifico lead text-center shiner">{{invite.shortMsg}}</div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="card mb-3 bg-none">
+          <div class="row no-gutters">
+            <div class="col-12">
+              <img class="main-img shadow" src="{{mainPhoto.url}}" alt="{{mainPhoto.title}}">
+            </div>
+            {{#if mainPhoto.title}}
+            <div class="col-12 d-flex align-items-end">
+              <div class="card-body comforta">
+                <h3 class="card-title">{{mainPhoto.title}}</h3>
+                <small class="card-text text-muted">{{mainPhoto.description}}</small>
+              </div>
+            </div>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+      {{else}}
+      <div class="col">
+        <h1 class="display-1 jump text-center luckiestguy">
+          {{invite.title}}
+        </h1>
+        <div class="pacifico lead text-center shiner">{{invite.shortMsg}}</div>
+      </div>
+      {{/if}}
+    </div>
+  </section>
+
+  {{#if longMsg}}
+  <section class="long-msg my-5 py-5">
+    <div class="long-msg text-center chilanka">
+      {{{longMsg}}}
+    </div>
+  </section>
+  {{/if}}
+
+  <section class="details py-5 blurr">
+    <div class="row justify-content-between">
+      <div class="col-12 col-md-6">
+        <h4 class="text-info border-bottom border-success">Venue</h4>
+        <small class="text-dark">{{invite.addrText}}</small>
+      </div>
+      <div class="col-12 col-md-6 mt-md-0 mt-4 text-right">
+        <h4 class="text-info border-bottom border-success">Time</h4>
+        <small class="text-dark">{{invite.timeFromString}} - {{endsat invite}}</small>
+      </div>
+    </div>
+  </section>
+
+  {{#if sliderPhotos}}
+  <section class="slider pb-5">
+    {{#each sliderPhotos}}
+    <div class="row border-top border-success my-2 py-2 {{#if @last}}border-bottom{{/if}}">
+      {{#ifEven @index}}
+      <div class="col-12 col-md-4">
+        <img class="img-fluid" src="{{../url}}" alt="{{../title}}">
+      </div>
+      <div class="col-12 col-md-8">
+        <div class="carousel-caption d-md-block comfortaa text-dark text-left d-none d-md-inline">
+          <h5>{{../title}}</h5>
+          <p>{{../description}}</p>
+        </div>
+      </div>
+      {{else}}
+      <div class="col-12 col-md-8">
+        <div class="carousel-caption d-md-block comfortaa text-dark text-right d-none d-md-inline">
+          <h5>{{../title}}</h5>
+          <p>{{../description}}</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <img class="img-fluid" src="{{../url}}" alt="{{../title}}">
+      </div>
+      {{/ifEven}}
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+</div>
