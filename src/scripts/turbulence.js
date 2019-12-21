@@ -214,7 +214,7 @@ function clickCanvas() {
 // beginning of execution
 
 {
-  const canvwrap = document.createElement('div');
+  const canvwrap = document.querySelector('div.bgphoto'); // document.createElement('div');
   canvwrap.style.position = 'absolute';
   canvwrap.style.left = 0;
   canvwrap.style.top = 0;
